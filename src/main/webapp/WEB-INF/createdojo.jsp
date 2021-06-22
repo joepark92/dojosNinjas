@@ -12,7 +12,7 @@
 	<script src="webjars/jquery/3.0.0/jquery.min.js" ></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container 3">
 		<h1>Add a Dojo</h1>
 		<a href="/">Back</a> | <a href="/ninjas/new">Create Ninja</a>
 		<form:form action="/dojos/new" method="post" modelAttribute="dojo">

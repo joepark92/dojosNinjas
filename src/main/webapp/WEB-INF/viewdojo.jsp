@@ -11,10 +11,10 @@
 	<script src="webjars/jquery/3.0.0/jquery.min.js" ></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container 2">
 		<h1><c:out value="${dojo.name}"/></h1>
 		<a href="/">Home</a> | <a href="/ninjas/new">Create Ninja</a>
-		<table class="table table-dark table-striped table-bordered">
+		<table class="table table-light table-striped table-bordered">
 			<thead>
 				<tr>
 					<th>First Name</th>
