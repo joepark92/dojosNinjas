@@ -7,9 +7,7 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Add a Dojo</title>
-	<link href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
-	<script src="webjars/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
-	<script src="webjars/jquery/3.0.0/jquery.min.js" ></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 <body>
 	<div class="container 3">
@@ -17,9 +15,11 @@
 		<a href="/">Back</a> | <a href="/ninjas/new">Create Ninja</a>
 		<form:form action="/dojos/new" method="post" modelAttribute="dojo">
 			<form:label path="name">Name:
-			<form:errors path="name"/>
 			<form:input path="name"/></form:label>
 			<input type="submit" value="Create Dojo">
+			<c:forEach items="${errors}" var="error">
+			<p><c:out value="${error.getDefaultMessage()}"/></p>
+		</c:forEach>
 		</form:form>
 	</div>
 </body>

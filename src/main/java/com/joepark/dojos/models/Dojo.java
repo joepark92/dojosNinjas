@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="dojos")
@@ -19,6 +21,8 @@ public class Dojo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotNull
+	@Size(min = 2, max = 100, message="Name must contain at least 2 characters.")
 	private String name;
 	@Column(updatable=false)
 	private Date createdAt;

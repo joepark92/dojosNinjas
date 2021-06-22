@@ -7,9 +7,7 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Add a Ninja</title>
-	<link href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
-	<script src="webjars/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
-	<script src="webjars/jquery/3.0.0/jquery.min.js" ></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 <body>
 	<div class="container 4">
@@ -18,13 +16,10 @@
 		<div class="" style="flex-direction: column; padding: 10px;">
 			<form:form action="/ninjas/new" method="post" modelAttribute="ninja"  class="d-flex border border-dark border-2" style="flex-direction: column; padding: 10px;">
 				<form:label path="firstName">First Name:
-				<form:errors path="firstName"/>
 				<form:input path="firstName"/></form:label>
 				<form:label path="lastName">Last Name:
-				<form:errors path="lastName"/>
 				<form:input path="lastName"/></form:label>
 				<form:label path="age">Age:
-				<form:errors path="age"/>
 				<form:input path="age" type="number"/></form:label>
 				<form:label path="dojo">Dojo:
 				<form:select path="dojo">
@@ -32,7 +27,10 @@
 	        				<form:option value="${dojo.id}"><c:out value="${dojo.name}"/></form:option>
 	   				</c:forEach>
 				</form:select></form:label>
-				<input type="submit" value="Create Ninja">
+				<input type="submit" value="Create Ninja" style="width: 175px;">
+				<c:forEach items="${errors}" var="error">
+					<p><c:out value="${error.getDefaultMessage()}"/></p>
+				</c:forEach>	
 			</form:form>
 		</div>
 	</div>

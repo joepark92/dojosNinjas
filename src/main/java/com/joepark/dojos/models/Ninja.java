@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="ninjas")
@@ -19,8 +22,14 @@ public class Ninja {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotNull
+	@Size(min = 2, max = 20, message="First Name must contain at least 2 characters.")
 	private String firstName;
+	@NotNull
+	@Size(min = 2, max = 20, message="Last Name must contain at least 2 characters.")
 	private String lastName;
+	@NotNull
+	@Min(value = 0l, message = "Please enter a valid age.")
 	private int age;
 	@Column(updatable=false)
 	private Date createdAt;
